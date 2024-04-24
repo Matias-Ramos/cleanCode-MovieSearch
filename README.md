@@ -4,8 +4,8 @@ _Get your API Key on the website by registering your email._
 
 Requirements:
 
-- Needs to show an input to search for the movie and a button to search.
-- List the movies and show the title, year, and poster.
+- Needs to show an input to search for the movie and a button to search. 🆗
+- List the movies and show the title, year, and poster. 🆗
 - Make the form work.
 - Make the movies display in a responsive grid.
 - Fetch data from the API.
