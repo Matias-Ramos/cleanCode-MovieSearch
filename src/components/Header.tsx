@@ -1,6 +1,6 @@
 const headerStyle = "w-full flex justify-between items-end py-5";
 const h1Style = "text-2xl font-bold";
-const spanStyle = "bg-slate-300 text-black font-bold px-3";
+const spanStyle = "bg-slate-300 text-black font-bold px-3 text-lg";
 
 const Header = () => (
     <header className={headerStyle}>
