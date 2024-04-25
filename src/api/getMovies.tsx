@@ -1,16 +1,13 @@
 
-import { getCurrentTime } from "@/utils/currentTimeString";
+import { getCurrentTime } from "@/utils/getCurrentTime";
 import { Movie_I } from "../interfaces/movie_i";
-
-
+import { MovieFetchError } from "@/classes/movieFetchError";
 
 async function getMovies(currentSearch: string, apiKey: string) {
-
 
     if(!currentSearch) return
     
     try {
-        throw ("UnexpectedError happen")
         const responseJson = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${currentSearch}`);
         const responseObj = await responseJson.json();
         const formattedList: Movie_I[] = (responseObj.Search).map((movie: any) => (
@@ -22,19 +19,16 @@ async function getMovies(currentSearch: string, apiKey: string) {
             }
         ))
         return(formattedList);
-
-    } catch (error: unknown) {
-        let message;
-        if (error instanceof Error) message = error.message;
-        else message = String(error)
-
-        const currentTime:string = getCurrentTime();
-        throw generateError(currentTime,message)
     }
-}
 
-function generateError(currentTime:string, message:string){
-    return ( currentTime + ": " + message )
+    catch (error: unknown) {
+        const errorMessage = error instanceof Error ? error.message : String(error);
+        const currentTime: string = getCurrentTime();
+        throw new MovieFetchError(
+            `There was an error fetching your movies: ${errorMessage}`,
+            currentTime,
+        );
+    }
 }
 
 export default getMovies;

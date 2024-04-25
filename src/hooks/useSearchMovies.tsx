@@ -1,40 +1,54 @@
 import { useState, useRef, useEffect } from "react";
 import { Movie_I } from "../interfaces/movie_i";
 import getMovies from "../api/getMovies";
+import { MovieFetchError } from "@/classes/movieFetchError";
 
 const useSearchMovies = () => {
+
+    /*************************/
+    /* Objects  */
 
     const apiKey = useRef(import.meta.env.VITE_API_KEY);
 
     const [movieList, setMovieList] = useState<Movie_I[]>([]);
     const [currentSearch, setCurrentSearch] = useState<string>("");
 
-    const [ error, setError ] = useState<string>();
-    const [ loading, setLoading ] = useState<boolean>();
+    const [ error, setError ] = useState<MovieFetchError>();
+    const [ isLoading, setIsLoading ] = useState<boolean>(false);
 
     const handleMovieSearch = (newSearch: string) => {
         setCurrentSearch(newSearch)
     }
 
+
+    /*************************/
+    /* Effect  */
+
     useEffect(() => {
-        setLoading(true);
+        setIsLoading(true);
 
         getMovies(currentSearch, apiKey.current)
         .then( result => {
-            // console.log(result)
-            setLoading(false);
+            setIsLoading(false);
             setMovieList( result as Movie_I[])
         })
-        .catch( message => {
-            console.log("message en catch:")
-            console.log(message)
-            setLoading(false);
-            setError(message);
+        .catch( (error: MovieFetchError) => {
+            setIsLoading(false);
+            setError(error);
         })
         
     }, [currentSearch])
-    
 
-    return {movieList, handleMovieSearch, loading, error};
+
+    /*************************/
+    /* Return  */
+
+    return { 
+        handleMovieSearch,
+        movieList,
+        isLoading,
+        error
+    };
 }
+
 export default useSearchMovies;

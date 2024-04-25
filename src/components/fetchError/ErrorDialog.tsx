@@ -11,7 +11,8 @@ import {
 import { useState } from "react"
 
 
-const Error = ({ error }: { error: string }) => {
+const ErrorDialog = ({ error }: { error: string }) => {
+
     const [ isOpen, setIsOpen ] = useState(true)
 
     return (
@@ -19,7 +20,7 @@ const Error = ({ error }: { error: string }) => {
             <AlertDialogContent >
 
                 <AlertDialogHeader>
-                    <AlertDialogTitle> Ups! An error occurred. </AlertDialogTitle>
+                    <AlertDialogTitle> Ups! </AlertDialogTitle>
                     <AlertDialogDescription> {error} </AlertDialogDescription>
                 </AlertDialogHeader>
 
@@ -31,7 +32,6 @@ const Error = ({ error }: { error: string }) => {
 
             </AlertDialogContent>
         </AlertDialog>
-
     )
 }
-export default Error
+export default ErrorDialog
