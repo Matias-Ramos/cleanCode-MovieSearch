@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Movie_I } from "../interfaces/movie_i";
+import getMovies from "../api/getMovies";
 
 const useSearchMovies = () => {
 
@@ -7,33 +8,30 @@ const useSearchMovies = () => {
 
     const [movieList, setMovieList] = useState<Movie_I[]>([]);
     const [currentSearch, setCurrentSearch] = useState<string>("");
-        
+
+    const [ error, setError ] = useState<string>();
+    const [ loading, setLoading ] = useState<boolean>();
+
     const handleMovieSearch = (newSearch: string) => {
         setCurrentSearch(newSearch)
     }
 
     useEffect(() => {
+        setLoading(true);
 
-        async function getMovies() {
-            if(!currentSearch) return
-            
-            const responseJson = await fetch(`https://www.omdbapi.com/?apikey=${apiKey.current}&s=${currentSearch}`);
-            const responseObj = await responseJson.json();
-            
-            const formattedList: Movie_I[] = (responseObj.Search).map((movie: any) => (
-                {
-                    id: movie.imdbID,
-                    title: movie.Title,
-                    year: movie.Year,
-                    poster: movie.Poster,
-                }
-            ))
-            setMovieList(formattedList);
-        }
-        getMovies();
+        getMovies(currentSearch, apiKey.current)
+        .then( result => {
+            setLoading(false);
+            setMovieList( result as Movie_I[])
+        })
+        .catch( message => {
+            setLoading(false);
+            setError(message);
+        })
+        
     }, [currentSearch])
     
 
-    return {movieList, handleMovieSearch};
+    return {movieList, handleMovieSearch, loading, error};
 }
 export default useSearchMovies;
