@@ -18,3 +18,12 @@ Additionals:
 - Prevent the same search from being done twice in a row.
 - Make the search happen automatically as you type.
 - Prevent the search from happening continuously while typing (debounce).
+
+### Code execution 
+1. Open cmd
+2. git clone https://github.com/Matias-Ramos/cleanCode-MovieSearch.git
+3. Open IDE terminal > cd on the project dir
+4. npm install
+5. npm run dev to run development environment. npm run build to create the project distro.
+
+React Vite project.
