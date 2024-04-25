@@ -14,7 +14,7 @@ Requirements:
 - Make the movies display in a responsive grid.
 
 Additionals:
-
+- Handle errors. 🆗
 - Prevent the same search from being done twice in a row.
 - Make the search happen automatically as you type.
 - Prevent the search from happening continuously while typing (debounce).
