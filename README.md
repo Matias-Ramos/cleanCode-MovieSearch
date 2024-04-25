@@ -1,3 +1,6 @@
+# Purpose 
+Project to demonstrate my current code quality (April 2024).
+
 ## Create a Movie Search Application
 API to use: - https://www.omdbapi.com/  
 _Get your API Key on the website by registering your email._
