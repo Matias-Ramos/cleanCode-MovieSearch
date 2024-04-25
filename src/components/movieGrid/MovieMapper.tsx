@@ -1,5 +1,3 @@
-// List the movies by showing the title, year, and poster.
-
 // Interfaces
 import { Movie_I } from "../../interfaces/movie_i";
 // Components

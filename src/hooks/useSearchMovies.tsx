@@ -21,10 +21,13 @@ const useSearchMovies = () => {
 
         getMovies(currentSearch, apiKey.current)
         .then( result => {
+            // console.log(result)
             setLoading(false);
             setMovieList( result as Movie_I[])
         })
         .catch( message => {
+            console.log("message en catch:")
+            console.log(message)
             setLoading(false);
             setError(message);
         })
