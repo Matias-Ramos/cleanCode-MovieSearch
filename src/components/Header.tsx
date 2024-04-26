@@ -9,7 +9,7 @@ const Header = () => (
             Movie searcher
         </h1>
         <span className={spanStyle}>
-            <i>Clean code project</i>
+            <i>Code Quality Showcase</i>
         </span>
 
     </header>

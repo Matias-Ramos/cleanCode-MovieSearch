@@ -1,10 +1,10 @@
 // Components
-
 import Header from "./components/Header"
+import Searcher from "./components/movieSearcher/Searcher"
 import Loading from "./components/Loading";
 import FetchError from "./components/fetchError/FetchError";
 import MovieMapper from "./components/movieGrid/MovieMapper"
-import Searcher from "./components/movieSearcher/Searcher"
+// Hooks
 import useSearchMovies from "./hooks/useSearchMovies";
 
 function App() { 
@@ -17,7 +17,7 @@ function App() {
   } = useSearchMovies(); 
 
   return (
-    <>
+    <div id="page" className="px-20">
       <Header />
       <main>
         <Searcher handleMovieSearch={handleMovieSearch}/>
@@ -28,7 +28,7 @@ function App() {
           <MovieMapper movieList={movieList}/>
         }
       </main>
-    </>
+    </div>
   )
 }
 
