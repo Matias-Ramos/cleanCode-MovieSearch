@@ -11,7 +11,7 @@ Requirements:
 - List the movies and show the title, year, and poster. 🆗
 - Make the form work. 🆗
 - Fetch data from the API. 🆗
-- Make the movies display in a responsive grid.
+- Make the movies display in a responsive grid. 🆗
 
 Additionals:
 - Handle errors. 🆗

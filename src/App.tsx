@@ -17,7 +17,7 @@ function App() {
   } = useSearchMovies(); 
 
   return (
-    <div id="page" className="px-20">
+    <div id="page" className=" px-4 lg:px-20">
       <Header />
       <main>
         <Searcher handleMovieSearch={handleMovieSearch}/>
