@@ -1,26 +1,28 @@
-
-import { getCurrentTime } from "@/utils/getCurrentTime";
+// Data types
 import { Movie_I } from "../interfaces/movie_i";
 import { MovieFetchError } from "@/classes/movieFetchError";
+// Utils
+import formatMovieList from "@/utils/formatMovieList";
+import { getCurrentTime } from "@/utils/getCurrentTime";
 
 async function getMovies(currentSearch: string, apiKey: string) {
 
-    if(!currentSearch) return
-    
+    if (!currentSearch) return;
+
     try {
+        /***** */
+        // Fetch
         const responseJson = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${currentSearch}`);
         const responseObj = await responseJson.json();
-        const formattedList: Movie_I[] = (responseObj.Search).map((movie: any) => (
-            {
-                id: movie.imdbID,
-                title: movie.Title,
-                year: movie.Year,
-                poster: movie.Poster,
-            }
-        ))
-        console.log("formattedList")
-        console.log(formattedList)
-        return(formattedList);
+
+        /***** */
+        // Formating
+        if (responseObj.Error === "Movie not found!") return ([])
+        const formattedList: Movie_I[] = formatMovieList(responseObj.Search);
+
+        /***** */
+        // Return
+        return (formattedList);
     }
 
     catch (error: unknown) {

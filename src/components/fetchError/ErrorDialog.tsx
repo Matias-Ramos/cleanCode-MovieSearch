@@ -10,14 +10,13 @@ import {
 
 import { useState } from "react"
 
-
 const ErrorDialog = ({ error }: { error: string }) => {
 
     const [ isOpen, setIsOpen ] = useState(true)
 
     return (
         <AlertDialog open={isOpen}>
-            <AlertDialogContent >
+            <AlertDialogContent className="bg-slate-100 text-black rounded-lg">
 
                 <AlertDialogHeader>
                     <AlertDialogTitle> Ups! </AlertDialogTitle>

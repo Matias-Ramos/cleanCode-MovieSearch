@@ -6,27 +6,29 @@ import FetchError from "./components/fetchError/FetchError";
 import MovieMapper from "./components/movieGrid/MovieMapper"
 // Hooks
 import useSearchMovies from "./hooks/useSearchMovies";
+import MovieNotFound from "./components/movieGrid/MovieNotFound";
 
-function App() { 
+function App() {
 
-  const { 
+  const {
     handleMovieSearch,
     movieList,
     isLoading,
     error
-  } = useSearchMovies(); 
+  } = useSearchMovies();
+
+  const movieNotFound = (!isLoading && !error && movieList && movieList.length === 0)
+  const hasResults = ( !isLoading && !error);
 
   return (
-    <div id="page" className=" px-4 lg:px-20">
+    <div id="page" className="px-4 lg:px-20">
       <Header />
       <main>
-        <Searcher handleMovieSearch={handleMovieSearch}/>
+        <Searcher handleMovieSearch={handleMovieSearch} />
         <Loading isLoading={isLoading} />
         <FetchError error={error} />
-        { 
-          (!isLoading && !error) &&
-          <MovieMapper movieList={movieList}/>
-        }
+        { movieNotFound && <MovieNotFound /> }
+        { hasResults && <MovieMapper movieList={movieList} /> }
       </main>
     </div>
   )
