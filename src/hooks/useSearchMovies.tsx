@@ -17,8 +17,12 @@ const useSearchMovies = () => {
     const [ isLoading, setIsLoading ] = useState<boolean>(false);
 
     const handleMovieSearch = (newSearch: string) => {
-        if( newSearch === currentSearch ) return;
-        console.log("handleMovieSearch")
+        
+        const strIsLongEnough = (newSearch: string) => newSearch.length > 2 ;
+        const isCurrentlyRendered = (newSearch: string) => newSearch === currentSearch;
+
+        if( !strIsLongEnough(newSearch) || isCurrentlyRendered(newSearch) ) return;
+        
         setCurrentSearch(newSearch)
     }
 

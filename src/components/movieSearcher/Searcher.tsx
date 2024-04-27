@@ -22,7 +22,9 @@ const Searcher = ({ handleMovieSearch }: { handleMovieSearch: Function }) => {
                         type="text"
                         name="movieName"
                         // value={currentSearch}
-                        // onChange={(evt) => handleMovieSearch(evt.target.value)}
+                        onChange={(evt) => {
+                            handleMovieSearch(evt.target.value)
+                        }}
                         className={inputStyle}
                     />
                 </label>

@@ -18,6 +18,8 @@ async function getMovies(currentSearch: string, apiKey: string) {
                 poster: movie.Poster,
             }
         ))
+        console.log("formattedList")
+        console.log(formattedList)
         return(formattedList);
     }
 
