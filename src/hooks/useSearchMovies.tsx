@@ -17,6 +17,8 @@ const useSearchMovies = () => {
     const [ isLoading, setIsLoading ] = useState<boolean>(false);
 
     const handleMovieSearch = (newSearch: string) => {
+        if( newSearch === currentSearch ) return;
+        console.log("handleMovieSearch")
         setCurrentSearch(newSearch)
     }
 
