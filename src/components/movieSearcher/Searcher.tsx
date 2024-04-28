@@ -1,8 +1,12 @@
+// Fns & Hooks
+import debounce from "just-debounce-it";
+import { useCallback } from "react";
+// Components
+import SubmitBtn from "./SubmitBtn";
+import Input from "./Input";
 // Styles
 const containerStyle = "flex justify-center py-7 border-solid border-2 border-neutral-600";
 const formStyle = "w-4/5 md:w-3/5 flex items-center justify-evenly flex-col sm:flex-row gap-5 sm:gap-0";
-const inputStyle = `ms-3 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`;
-const btnStyle = `w-40 inline-block bg-[#5C9A9D] hover:bg-[#3D6669] text-white font-bold py-2 px-4 rounded`;
 
 const Searcher = ({ handleMovieSearch }: { handleMovieSearch: Function }) => {
 
@@ -12,26 +16,24 @@ const Searcher = ({ handleMovieSearch }: { handleMovieSearch: Function }) => {
         const movieName = new FormData(form).get('movieName') as string;
         handleMovieSearch(movieName);
     }
- 
+
+    const debounceHandleMovieSearch = useCallback(
+        debounce((search: string) => {
+            handleMovieSearch(search)
+        }, 750)
+    , [])
+    const handleInputChg = (newValue: string) => {
+        debounceHandleMovieSearch(newValue);
+    }
+
     return (
         <div className={containerStyle}>
             <form className={formStyle} onSubmit={(e) => handleSubmit(e)}>
-                <label className="inline-block text-center" >
+                <label className="inline-block text-center">
                     Movie:
-                    <input 
-                        type="text"
-                        name="movieName"
-                        // value={currentSearch}
-                        onChange={(evt) => {
-                            handleMovieSearch(evt.target.value)
-                        }}
-                        className={inputStyle}
-                    />
+                    <Input handleInputChg={handleInputChg} />
                 </label>
-
-                <button type="submit" className={btnStyle}>
-                    Search
-                </button>
+                <SubmitBtn />
             </form>
         </div>
     )
