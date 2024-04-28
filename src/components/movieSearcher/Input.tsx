@@ -6,6 +6,7 @@ const Input = ({handleInputChg}: {handleInputChg: Function}) => (
         name="movieName"
         onChange={(evt) => handleInputChg(evt.target.value)}
         className={inputStyle}
+        aria-label="Movie Search Input"
     />
 )
 

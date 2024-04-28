@@ -21,7 +21,7 @@ function App() {
   const hasResults = ( !isLoading && !error);
 
   return (
-    <div id="page" className="px-4 lg:px-20">
+    <div className="px-4 lg:px-20">
       <Header />
       <main>
         <Searcher handleMovieSearch={handleMovieSearch} />

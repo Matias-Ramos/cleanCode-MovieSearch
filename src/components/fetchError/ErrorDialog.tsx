@@ -1,3 +1,4 @@
+// Components
 import {
     AlertDialog,
     AlertDialogCancel,
@@ -7,7 +8,7 @@ import {
     AlertDialogHeader,
     AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
-
+// Hooks
 import { useState } from "react"
 
 const ErrorDialog = ({ error }: { error: string }) => {

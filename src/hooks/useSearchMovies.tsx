@@ -1,7 +1,10 @@
+// Hooks
 import { useState, useRef, useEffect } from "react";
+// Data types
 import { Movie_I } from "../interfaces/movie_i";
-import getMovies from "../api/getMovies";
 import { MovieFetchError } from "@/classes/movieFetchError";
+// API calls
+import getMovies from "../api/getMovies";
 
 const useSearchMovies = () => {
 

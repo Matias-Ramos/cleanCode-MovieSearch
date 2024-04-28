@@ -8,6 +8,7 @@ const Header = () => (
         <span className={spanStyle}>
             <i>Code Quality Showcase</i>
         </span>
+        
         <h1 className={h1Style}>
             Movie searcher
         </h1>

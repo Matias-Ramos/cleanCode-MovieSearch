@@ -1,5 +1,5 @@
 # Purpose 
-Project to demonstrate my current code quality (April 2024).
+Project to demonstrate my current code skills (April 2024).
 
 ## Create a Movie Search Application
 API to use: - https://www.omdbapi.com/  
@@ -7,11 +7,10 @@ _Get your API Key on the website by registering your email._
 
 Requirements:
 
-- Needs to show an input to search for the movie and a button to search. 🆗
+- Render an input and a button to search for movies. 🆗
 - List the movies and show the title, year, and poster. 🆗
-- Make the form work. 🆗
-- Fetch data from the API. 🆗
-- Make the movies display in a responsive grid. 🆗
+- Fetch data from the API with the form. 🆗
+- Implement a responsive design. 🆗
 
 Additionals:
 - Handle errors. 🆗
@@ -19,7 +18,7 @@ Additionals:
 - Make the search happen automatically as you type. 🆗
 - Prevent the search from happening continuously while typing (debounce). 🆗
 
-### Code execution 
+## Code execution 
 1. Open cmd
 2. git clone https://github.com/Matias-Ramos/cleanCode-MovieSearch.git
 3. Open IDE terminal > cd on the project dir

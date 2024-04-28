@@ -8,4 +8,4 @@ const FetchError = ({ error }: { error: MovieFetchError | undefined }) => (
     ? <ErrorDialog error={error.message} key={error.currentTime} />
     : null
 )
-export default FetchError
+export default FetchError;
