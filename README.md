@@ -23,6 +23,7 @@ Additionals:
 2. git clone https://github.com/Matias-Ramos/cleanCode-MovieSearch.git
 3. Open IDE terminal > cd on the project dir
 4. npm install
-5. npm run dev to run development environment. npm run build to create the project distro.
+5. Create a ".env" file at root directory with this variable: VITE_API_KEY = yourOMDB_ApiKey
+6. npm run dev to run development environment. npm run build to create the project distro.
 
 React Vite project.
