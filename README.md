@@ -18,6 +18,10 @@ Additionals:
 - Make the search happen automatically as you type. 🆗
 - Prevent the search from happening continuously while typing (debounce). 🆗
 
+## Dependencies
+- Shadcn - components
+- Tailwind - styling
+
 ## Code execution 
 1. Open cmd
 2. git clone https://github.com/Matias-Ramos/cleanCode-MovieSearch.git

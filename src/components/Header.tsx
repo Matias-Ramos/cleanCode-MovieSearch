@@ -6,7 +6,7 @@ const Header = () => (
     <header className={headerStyle}>
 
         <span className={spanStyle}>
-            <i>Code Quality Showcase</i>
+            <i><u>Code</u> Quality Showcase</i>
         </span>
         
         <h1 className={h1Style}>
