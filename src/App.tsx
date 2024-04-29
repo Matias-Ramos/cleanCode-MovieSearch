@@ -5,7 +5,7 @@ import Loading from "./components/Loading";
 import FetchError from "./components/fetchError/FetchError";
 import MovieMapper from "./components/movieGrid/MovieMapper"
 // Hooks
-import useSearchMovies from "./hooks/useSearchMovies";
+import { useSearchMovies } from "./hooks/useSearchMovies";
 import MovieNotFound from "./components/movieGrid/MovieNotFound";
 
 function App() {
@@ -14,11 +14,11 @@ function App() {
     handleMovieSearch,
     movieList,
     isLoading,
-    error
+    error,
   } = useSearchMovies();
 
   const movieNotFound = (!isLoading && !error && movieList && movieList.length === 0)
-  const hasResults = ( !isLoading && !error);
+  const hasResults = ( !isLoading && !error && movieList);
 
   return (
     <div className="px-4 lg:px-20">
