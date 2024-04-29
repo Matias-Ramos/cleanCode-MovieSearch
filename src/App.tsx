@@ -1,5 +1,5 @@
 // Components
-import Header from "./components/Header"
+import Header from "./components/header/Header"
 import Searcher from "./components/movieSearcher/Searcher"
 import Loading from "./components/Loading";
 import FetchError from "./components/fetchError/FetchError";
